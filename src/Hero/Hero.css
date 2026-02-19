@@ -1,0 +1,209 @@
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    ),
+    url("../assets/Hero.jpg");
+  background-position: center;
+  background-size: cover;
+  color: rgb(9, 9, 105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Hero-text {
+  margin-top: 10%;
+  text-align: center;
+  color: black;
+  position: relative;
+  z-index: 2;
+}
+.Hero-text h1 {
+  font-size: 60px;
+  font-weight: 600;
+}
+.Hero-text p {
+  max-width: 700px;
+  margin: 10px 170px 20px;
+  line-height: 1.4;
+}
+.Options {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 10%;
+  gap: 24px;
+}
+.box {
+  background: rgba(255, 255, 255, 0.7); /* frosted look */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ← key line */
+  text-align: left;
+  padding-left: 3%;
+  margin-bottom: 3%;
+  height: 550px;
+  width: 500px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.report:hover {
+  box-shadow: 0 20px 45px rgba(59, 110, 245, 0.35);
+  transform: translateY(-4px);
+}
+.report {
+  border: 1px solid #3b6ef5;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+.report .icon {
+  color: #3b6ef5;
+  background: #e9f0ff;
+  border: 1px solid #3b6ef5;
+  transition:
+    background 0.3s ease,
+    color 0.3s,
+    transform 0.3s ease;
+}
+.report:hover .icon {
+  background: #3b6ef5;
+  color: white;
+}
+.box h4 {
+  font-weight: 500;
+  margin-right: 10%;
+  font-size: 20px;
+}
+.box h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.box ul {
+  list-style: none;
+  padding: 0;
+  margin: 35px 0;
+}
+
+.box li {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.report li::before {
+  content: "✔";
+  color: #3b6ef5;
+  margin-right: 8px;
+}
+
+.box button {
+  width: 80%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 5%;
+}
+.report button {
+  background: #3b6ef5;
+  color: white;
+}
+.report button:hover {
+  background: #2f5ae0;
+}
+
+.Volunteer button {
+  background: #4caf50;
+  color: white;
+}
+.Volunteer button:hover {
+  background: #268029;
+}
+.Volunteer {
+  border: 1px solid #4caf50;
+}
+
+.Volunteer:hover .icon {
+  background: #4caf50;
+  color: white;
+}
+.Volunteer li::before {
+  content: "✔";
+  color: #4caf50;
+  margin-right: 8px;
+}
+.Volunteer .icon {
+  color: #4caf50;
+  background: #e9f0ff;
+  border: 1px solid #4caf50;
+  transition:
+    background 0.3s ease,
+    color 0.3s,
+    transform 0.3s ease;
+}
+.Volunteer:hover {
+  box-shadow: 0 20px 45px rgba(76, 175, 80, 0.4);
+  transform: translateY(-4px);
+}
+
+.Blood button {
+  background: #f74949;
+  color: white;
+}
+.Blood button:hover {
+  background: #d32f2f;
+}
+.Blood {
+  border: 1px solid #f74949;
+}
+
+.Blood:hover .icon {
+  background: #f74949;
+  color: white;
+}
+.Blood li::before {
+  content: "✔";
+  color: #f74949;
+  margin-right: 8px;
+}
+.Blood .icon {
+  color: #f74949;
+  background: #e9f0ff;
+  border: 1px solid #f74949;
+  transition:
+    background 0.3s ease,
+    color 0.3s,
+    transform 0.3s ease;
+}
+.Blood:hover {
+  box-shadow: 0 20px 45px rgba(247, 73, 73, 0.4);
+  transform: translateY(-4px);
+}
