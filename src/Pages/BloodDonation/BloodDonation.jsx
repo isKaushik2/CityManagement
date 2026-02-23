@@ -3,7 +3,7 @@ import "./BloodDonation.css";
 function BloodDonation() {
   return (
     <div>
-      <p>Ahnaf niggaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>Newaz study lessssssssssssssssssssssssssssssss</p>
     </div>
   );
 }
