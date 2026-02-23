@@ -1,10 +1,14 @@
 import React from "react";
 import "./ReportPage.css";
+import FormHeader from "./FormHeader";
+import Form from "./Form";
+
 function ReportPage() {
   return (
-    <div>
-      <p>Newaz study lessssssssssssssssssssssssssssssss</p>
-    </div>
+    <>
+          <FormHeader />
+          <Form />
+    </>
   );
 }
 
