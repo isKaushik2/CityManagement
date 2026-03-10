@@ -1,3 +1,55 @@
-p {
-  font-size: 40px;
+.Volunteer_bg {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 20, 35, 0.9),
+      rgba(5, 20, 35, 0.85),
+      rgba(5, 20, 35, 0.95)
+    ),
+    url("../../assets/Volunteer-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 120px;
+  padding-top: 120px;
+}
+.head_line {
+  width: 50%;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 60px;
+}
+.green {
+  background: linear-gradient(to left, #00b8a9, #33d1c4, #009688);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.head_line p {
+  font-size: 21px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.card {
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  margin-top: 60px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
 }
