@@ -1,0 +1,45 @@
+.page{
+  min-height:100vh;
+  background:#f6f6f8;
+  font-family:'Public Sans',sans-serif;
+}
+
+.main{
+  display:flex;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+.container{
+  width:960px;
+}
+
+.step2-card{
+  padding:30px;
+  margin-top:20px;
+}
+
+.step2-glass{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+}
+
+.progress-bar{
+  height:8px;
+  background:#e4e4e4;
+  border-radius:6px;
+  margin-top:8px;
+}
+
+.progress-fill{
+  width:50%;
+  height:100%;
+  background:#306ee8;
+}

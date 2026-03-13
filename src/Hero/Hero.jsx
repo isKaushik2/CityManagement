@@ -10,7 +10,7 @@ function Hero() {
     <div className="hero nanbar">
       <div className="Hero-text">
         <h1>Your City,Connected</h1>
-        <p>
+        <p className="hero-text-desc">
           Access municipal services, stay updated with local news, and
           contribute to your community through one central portal.
         </p>

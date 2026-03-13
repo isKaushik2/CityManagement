@@ -2,13 +2,11 @@ import React from "react";
 import "./ReportPage.css";
 import FormHeader from "./FormHeader";
 import Form from "./Form";
+import ComplaintWizard from "../ComplaintWizard";
 
-function ReportPage() {
+function ReportPage () {
   return (
-    <>
-          <FormHeader />
-          <Form />
-    </>
+    <ComplaintWizard/>
   );
 }
 
