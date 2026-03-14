@@ -1,3 +1,60 @@
-p {
-  font-size: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+input,
+button,
+textarea,
+select{
+    font: inherit;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 30px;
+}
+
+.Form-header {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.Form-header h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.Form-header p{
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.form-group 
+input,
+textarea,
+select,
+description{
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 5px;
+}
+
+button{
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.25rem;
+    width: 200px;
+}
+
+input{
+    border-radius: 8px;
+    padding: 1ex 2ex;
+    width: 100%;
 }

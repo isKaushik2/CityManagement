@@ -1,0 +1,21 @@
+.urgency-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:10px;
+}
+
+.urgency-card{
+  padding:15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  cursor:pointer;
+}
+
+.urgency-card.active{
+  border:2px solid #306ee8;
+  background:#eef4ff;
+}
