@@ -4,8 +4,9 @@
   box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
 }
+
 .btn {
-  background-color: #2f5ae0;
+  background-color: #4c7dff;
   color: white;
   padding: 14px 25px;
   font-size: 22px;
@@ -15,4 +16,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn:hover {
+  background-color: #365fe0;
 }

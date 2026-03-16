@@ -1,3 +1,245 @@
-p {
-  font-size: 40px;
+.bloodDonationPage{
+  min-height:100vh;
+  background:#0b1f3a;
+  color:white;
+  padding:60px 40px;
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  max-width:1200px;
+  width:100%;
+}
+
+.heroSection{
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.heroText{
+  max-width:600px;
+}
+
+.heroTitle{
+  font-size:48px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.heroDescription{
+  font-size:18px;
+  color:#b8c2d9;
+  line-height:1.7;
+}
+
+.heroButtons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+}
+
+.donateBtn{
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  border:none;
+  padding:14px 26px;
+  border-radius:10px;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.donateBtn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,198,255,.4);
+}
+
+.bloodStatusSection{
+  margin-top:80px;
+}
+
+.statusTitle{
+  font-size:28px;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.statusCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  
+}
+
+.statusCard {
+  background: #12284a;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.25s, box-shadow 0.25s, border 0.25s;
+  border: 2px solid transparent;
+}
+
+.statusCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 10px rgba(0,198,255,.4), 0 0 20px rgba(0,198,255,.3);
+  border: 2px solid #00c6ff;
+}
+
+.statusPercent{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.progressBar{
+  height:10px;
+  background:#08152b;
+  border-radius:6px;
+  margin:8px 0;
+  overflow:hidden;
+}
+
+.progressFill{
+  height:100%;
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  transition:width .4s;
+}
+
+.statusTag{
+  display:inline-block;
+  margin-top:10px;
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:6px;
+  background:#1b3f72;
+}
+
+.eligibilitySection{
+  margin-top:120px;
+  display:flex;
+  justify-content:center;
+}
+
+.eligibilityCardMain{
+  background:#13294b;
+  padding:30px;
+  border-radius:16px;
+  width:420px;
+}
+
+.eligibilityIntro{
+  color:#b8c2d9;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.eligibilityItem{
+  display:flex;
+  gap:12px;
+  background:#162f56;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.checkIcon{
+  background:#00c6ff;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.eligibilityItem p{
+  font-size:12px;
+  color:#b8c2d9;
+}
+
+.questionnaireBtn{
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#1e3a66;
+  color:white;
+  cursor:pointer;
+}
+
+.questionnaireBtn:hover{
+  background:#244a84;
+}
+
+.popupOverlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.popupCard{
+  background:#12284a;
+  padding:25px;
+  border-radius:12px;
+  width:350px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.popupCard input,.bloodSelect{
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  background:#1b3f72;
+  color:white;
+}
+
+.popupCard input::placeholder{
+  color:#b8c2d9;
+}
+
+.formButtons{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.cancelBtn{
+  flex:1;
+  background:#2c3f63;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.cancelBtn:hover{
+  background:#3a5382;
+}
+
+.submitBtn{
+  flex:1;
+  background:#0072ff;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.submitBtn:hover{
+  background:#0b63d6;
 }

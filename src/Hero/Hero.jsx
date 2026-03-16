@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
+import { faTint, faUsers } from "@fortawesome/free-solid-svg-icons";
 import "./Hero.css";
 
 import { useNavigate } from "react-router-dom";
@@ -17,12 +18,11 @@ function Hero() {
         <div className="Options">
           <div className="box report">
             <div className="icon">
-              <FontAwesomeIcon icon={faWrench} />
+              <FontAwesomeIcon icon={faUsers} />
             </div>
             <h2>Report a Problem</h2>
             <h4>
-              Potholes, broken street lights, or graffiti? Let us know and track
-              the repair progress.
+             Notice something that needs fixing in your neighborhood? Report issues quickly so the city can take action.
             </h4>
             <ul>
               <li>Street Light Repairs</li>
@@ -33,29 +33,11 @@ function Hero() {
               Send a Report
             </button>
           </div>
-          <div className="box Volunteer">
-            <div className="icon">
-              <FontAwesomeIcon icon={faWrench} />
-            </div>
-            <h2>Valunteer</h2>
-            <h4>
-              Make a difference in your neighborhood.Join community cleanups or
-              mentorship programs.
-            </h4>
-            <ul>
-              <li>Park Cleanups</li>
-              <li>Senior Support</li>
-              <li>Youth Mentoring</li>
-            </ul>
-            <button onClick={() => navigate("/VolunteerPage")}>
-              Find Opportunities
-            </button>
-          </div>
           <div className="box Blood">
             <div className="icon">
-              <FontAwesomeIcon icon={faWrench} />
+              <FontAwesomeIcon icon={faTint} />
             </div>
-            <h2>Valunteer</h2>
+            <h2>Volunteer</h2>
             <h4>
               Make a difference in your neighborhood.Join community cleanups or
               mentorship programs.
@@ -69,6 +51,24 @@ function Hero() {
               Find Opportunities
             </button>
           </div>
+          <div className="box Volunteer">
+            <div className="icon">
+              <FontAwesomeIcon icon={faWrench} />
+            </div>
+            <h2>Volunteer</h2>
+            <h4>
+              Join hands with your community and help make your city cleaner, safer, and more connected.
+            </h4>
+            <ul>
+              <li>Park Cleanups</li>
+              <li>Senior Support</li>
+              <li>Youth Mentoring</li>
+            </ul>
+            <button onClick={() => navigate("/VolunteerPage")}>
+              Find Opportunities
+            </button>
+          </div>
+          
         </div>
       </div>
     </div>

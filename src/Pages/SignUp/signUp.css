@@ -1,0 +1,50 @@
+.login-card h2{
+  text-align:center;
+}
+
+.subtitle{
+  text-align:center;
+}
+
+.input-box{
+  height:42px;
+  padding:6px 10px;
+}
+
+.icon{
+  font-size:16px;
+}
+
+.signup-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#19d3c5;
+  color:#002b2b;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.signup-btn:hover{
+  background:#13bdb0;
+  transform:translateY(-1px);
+}
+
+.signup-text{
+  margin-top:16px;
+  font-size:13px;
+  text-align:center;
+  color:#9fb8d3;
+}
+
+.signup-text a{
+  color:#ff8c2a;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.signup-text a:hover{
+  text-decoration:underline;
+}
