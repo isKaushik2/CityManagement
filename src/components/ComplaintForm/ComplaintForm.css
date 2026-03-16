@@ -1,0 +1,82 @@
+.page-bg{
+  min-height:100vh;
+  background:#f6f6f8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Public Sans',sans-serif;
+}
+
+.form-container{
+  width:800px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+.form-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid #eee;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-box{
+  width:40px;
+  height:40px;
+  background:#e8f0ff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:8px;
+  color:#306ee8;
+}
+
+.form-body{
+  padding:30px;
+}
+
+.progress-bar{
+  height:8px;
+  background:#eaeaea;
+  border-radius:5px;
+  margin-top:10px;
+}
+
+.progress-fill{
+  width:25%;
+  height:100%;
+  background:#306ee8;
+}
+
+.category-list{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.form-footer{
+  margin-top:30px;
+  display:flex;
+  justify-content:flex-end;
+  gap:15px;
+}
+
+.close-btn{
+  width: 45px;
+  padding: 5px;
+}
+
+.cancel-btn, .continue-btn{
+  width: 100px;
+  padding: 7.5px;
+}

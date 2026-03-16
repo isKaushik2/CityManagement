@@ -1,0 +1,59 @@
+.page{
+  background:#f6f6f8;
+  min-height:100vh;
+  font-family:'Public Sans',sans-serif;
+}
+
+.container{
+  width:800px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.step4-card{
+  padding:30px;
+  margin-top:20px;
+}
+
+.step4-glass{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+}
+
+.progress-bar{
+  height:10px;
+  background:#ddd;
+  border-radius:8px;
+  margin-top:8px;
+}
+
+.progress-fill{
+  width:100%;
+  height:100%;
+  background:#306ee8;
+}
+
+.section{
+  margin-top:30px;
+}
+
+textarea{
+  width:100%;
+  min-height:150px;
+  border-radius:8px;
+  padding:12px;
+}
+
+.buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.submit{
+  background:#306ee8;
+  color:white;
+  padding:12px 25px;
+  border-radius:8px;
+}
