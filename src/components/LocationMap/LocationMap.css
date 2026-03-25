@@ -45,31 +45,3 @@
   font-size:48px;
 }
 
-.buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:space-between;
-}
-
-.prev{
-  padding:12px 20px;
-  border-radius:10px;
-  border:1px solid #ddd;
-  background:white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.next{
-  padding:12px 25px;
-  border:none;
-  border-radius:10px;
-  background:#306ee8;
-  color:white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}

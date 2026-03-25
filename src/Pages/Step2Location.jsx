@@ -9,9 +9,7 @@ const Step2Location = ({ nextStep, prevStep }) => {
 
       {/* <StepHeader /> */}
 
-      <main className="main">
-
-        <div className="container step2-glass step2-card">
+      <div className="complaint-container complaint-glass complaint-card">
 
           <div className="progress-section">
 
@@ -27,7 +25,7 @@ const Step2Location = ({ nextStep, prevStep }) => {
             </div>
 
             <div className="progress-bar">
-              <div className="progress-fill"></div>
+              <div className="progress-fill-50"></div>
             </div>
 
           </div>
@@ -48,8 +46,6 @@ const Step2Location = ({ nextStep, prevStep }) => {
         </div>
 
         </div>
-
-      </main>
 
     </div>
   );

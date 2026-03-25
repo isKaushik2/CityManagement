@@ -1,37 +1,7 @@
-.page{
-  background:#f6f6f8;
-  min-height:100vh;
-  font-family:'Public Sans',sans-serif;
-}
-
-.container{
-  width:800px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-.step4-card{
-  padding:30px;
-  margin-top:20px;
-}
-
-.step4-glass{
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(10px);
-  border-radius:12px;
-}
-
-.progress-bar{
-  height:10px;
-  background:#ddd;
-  border-radius:8px;
-  margin-top:8px;
-}
-
-.progress-fill{
+.progress-fill-100{
   width:100%;
   height:100%;
-  background:#306ee8;
+  background: linear-gradient(90deg, #19d3c5, #14b8a6);
 }
 
 .section{

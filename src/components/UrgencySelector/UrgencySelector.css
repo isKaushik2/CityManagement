@@ -15,7 +15,20 @@
   cursor:pointer;
 }
 
-.urgency-card.active{
-  border:2px solid #306ee8;
-  background:#eef4ff;
+.urgency-card.active:nth-child(1) {
+  border-color: #3b82f6; /* standard - blue */
+  background: rgba(25, 211, 197, 0.15);
+  color: white;
+}
+
+.urgency-card.active:nth-child(2) {
+  border-color: #f59e0b; /* priority - amber */
+  background: rgba(25, 211, 197, 0.15);
+  color: white;
+}
+
+.urgency-card.active:nth-child(3) {
+  border-color: #ef4444; /* urgent - red */
+  background: rgba(25, 211, 197, 0.15);
+  color: white;
 }

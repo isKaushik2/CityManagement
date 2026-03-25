@@ -11,11 +11,9 @@ const Step4Final = ({ prevStep }) => {
   return (
     <div className="page">
 
-      <Header />
+      <div className="complaint-container complaint-glass complaint-card">
 
-      <div className="container step4-glass step4-card">
-
-        <div className="progress">
+        <div className="progress-section">
 
           <div className="progress-top">
             <span>Step 4 of 4: Completion</span>
@@ -23,7 +21,7 @@ const Step4Final = ({ prevStep }) => {
           </div>
 
           <div className="progress-bar">
-            <div className="progress-fill"></div>
+            <div className="progress-fill-100"></div>
           </div>
 
         </div>
@@ -58,11 +56,11 @@ const Step4Final = ({ prevStep }) => {
 
         <div className="buttons">
 
-          <button onClick={prevStep} className="back">
-            ← Back
+          <button onClick={prevStep} className="prev">
+            ← Previous step
           </button>
 
-          <button className="submit">
+          <button className="next">
             Submit Complaint →
           </button>
 

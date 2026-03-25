@@ -1,6 +1,6 @@
 .page-bg{
   min-height:100vh;
-  background:#f6f6f8;
+  background:radial-gradient(circle at top,#0b2c55,#050d1a);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -9,13 +9,14 @@
 
 .form-container{
   width:800px;
-  background:white;
+  background:rgba(10,20,40,0.9);
   border-radius:12px;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
   overflow:hidden;
 }
 
 .form-header{
+  color: white;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -44,6 +45,10 @@
   padding:30px;
 }
 
+.progress-header{
+  color: white;
+}
+
 .progress-bar{
   height:8px;
   background:#eaeaea;
@@ -51,10 +56,14 @@
   margin-top:10px;
 }
 
-.progress-fill{
+.progress-fill-25{
   width:25%;
   height:100%;
-  background:#306ee8;
+  background: linear-gradient(90deg, #19d3c5, #14b8a6);
+}
+
+.description{
+  color: white;
 }
 
 .category-list{
@@ -76,7 +85,41 @@
   padding: 5px;
 }
 
-.cancel-btn, .continue-btn{
-  width: 100px;
-  padding: 7.5px;
+.buttons{
+  margin-top:25px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.prev{
+  padding:12px 20px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background: transparent;
+  border: 1px solid #2a3a5a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.prev:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.next{
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  background: #19d3c5;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.next:hover {
+  background: #14b8a6;
 }

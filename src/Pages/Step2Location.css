@@ -1,28 +1,32 @@
 .page{
   min-height:100vh;
-  background:#f6f6f8;
+  background:radial-gradient(circle at top,#0b2c55,#050d1a);
   font-family:'Public Sans',sans-serif;
-}
-
-.main{
   display:flex;
   justify-content:center;
   padding:40px 20px;
+  color: white;
 }
 
-.container{
-  width:960px;
+.complaint-container{
+  width:800px;
+  margin:auto;
+  padding:40px 20px;
 }
 
-.step2-card{
+.complaint-card{
   padding:30px;
   margin-top:20px;
 }
 
-.step2-glass{
-  background:rgba(255,255,255,0.7);
+.complaint-glass{
+  background:rgba(10,20,40,0.9);
   backdrop-filter:blur(10px);
   border-radius:12px;
+}
+
+.progress-section{
+  padding-bottom: 10px;
 }
 
 .progress-top{
@@ -33,13 +37,13 @@
 
 .progress-bar{
   height:8px;
-  background:#e4e4e4;
+  background: #1e293b;
   border-radius:6px;
   margin-top:8px;
 }
 
-.progress-fill{
+.progress-fill-50{
   width:50%;
   height:100%;
-  background:#306ee8;
+  background: linear-gradient(90deg, #19d3c5, #14b8a6);
 }

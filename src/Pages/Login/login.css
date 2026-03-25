@@ -61,7 +61,7 @@ body{
   margin-bottom:18px;
 }
 
-label{
+.input-group label{
   font-size:13px;
   color:#a6c2e0;
 }

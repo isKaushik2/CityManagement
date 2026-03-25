@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ComplaintForm.css";
 import CategoryOption from "../CategoryOption/CategoryOption";
 
-const ComplaintForm = ({nextStep}) => {
+const ComplaintForm = ({ nextStep }) => {
   const [category, setCategory] = useState("Infrastructure");
+  const navigate = useNavigate();
 
   const categories = [
     {
@@ -44,7 +46,7 @@ const ComplaintForm = ({nextStep}) => {
           <h2>Submit Complaint</h2>
         </div>
 
-        <button className="close-btn">
+        <button onClick={() => {navigate("/")}} className="close-btn">
           <span className="material-symbols-outlined">close</span>
         </button>
       </header>
@@ -61,7 +63,7 @@ const ComplaintForm = ({nextStep}) => {
           </div>
 
           <div className="progress-bar">
-            <div className="progress-fill"></div>
+            <div className="progress-fill-25"></div>
           </div>
         </div>
 
@@ -81,9 +83,8 @@ const ComplaintForm = ({nextStep}) => {
         </div>
 
         <div className="form-footer">
-          <button className="cancel-btn">
-            Cancel
-          </button>
+          
+          <button onClick={() => {navigate(-1)}} className="prev">Cancel</button>
 
           <button onClick={nextStep} className="next">
             Next Step →

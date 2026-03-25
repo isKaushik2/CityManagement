@@ -21,3 +21,19 @@
 .btn:hover {
   background-color: #365fe0;
 }
+
+:root {
+  --primary: #19d3c5;
+  --primary-dark: #14b8a6;
+  --primary-light: #e6fffb;
+
+  --secondary: #306ee8;
+
+  --bg-dark: #0b2c55;
+  --card-bg: rgba(10, 20, 40, 0.9);
+
+  --text-main: #ffffff;
+  --text-muted: #b0c4de;
+
+  --border: #2a3a5a;
+}

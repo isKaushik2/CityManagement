@@ -11,11 +11,9 @@ const Step3Evidence = ({ nextStep, prevStep }) => {
   return (
     <div className="page">
 
-      <Header />
+      <div className="complaint-container complaint-glass complaint-card">
 
-      <div className="container step3-glass step3-card">
-
-        <div className="progress">
+        <div className="progress-section">
 
           <div className="progress-top">
             <p>Step 3 of 4: Uploading Evidence</p>
@@ -23,7 +21,7 @@ const Step3Evidence = ({ nextStep, prevStep }) => {
           </div>
 
           <div className="progress-bar">
-            <div className="progress-fill"></div>
+            <div className="progress-fill-75"></div>
           </div>
 
         </div>
