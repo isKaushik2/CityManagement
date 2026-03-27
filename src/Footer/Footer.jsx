@@ -1,20 +1,16 @@
 import React from "react";
 import "./Footer.css";
-function Footer() {
-  return (
+
+function Footer(){
+  return(
     <footer className="footer">
       <div className="footer-top">
-        {/* Brand */}
         <div className="footer-col brand">
           <div className="logo">
             <div className="logo-icon">🏛️</div>
             <span>CityConnect</span>
           </div>
-          <p>
-            Dedicated to improving civic life through modern technology and
-            community participation.
-          </p>
-
+          <p>Dedicated to improving civic life through modern technology and community participation.</p>
           <div className="socials">
             <button aria-label="Facebook">f</button>
             <button aria-label="Camera">📷</button>
@@ -22,7 +18,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Quick Links */}
         <div className="footer-col">
           <h4>Quick Links</h4>
           <ul>
@@ -33,7 +28,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
         <div className="footer-col">
           <h4>Contact Us</h4>
           <ul className="contact">

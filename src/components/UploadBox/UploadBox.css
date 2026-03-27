@@ -1,0 +1,27 @@
+.upload-box{
+  margin-top:30px;
+  padding:50px;
+  border: 2px dashed #19d3c5;
+  background: rgba(25, 211, 197, 0.05);
+  border-radius:12px;
+  text-align:center;
+}
+
+.upload-icon{
+  font-size:50px;
+  color:#306ee8;
+}
+
+.upload-btn{
+  margin-top:15px;
+  display:inline-block;
+  padding:10px 25px;
+  background: #19d3c5;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.upload-btn:hover {
+  background: #14b8a6;
+}

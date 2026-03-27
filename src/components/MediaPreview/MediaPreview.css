@@ -1,0 +1,47 @@
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.media-card{
+  position:relative;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.media-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  background:rgba(0,0,0,0.5);
+  opacity:0;
+  transition:0.2s;
+}
+
+.media-card:hover .overlay{
+  opacity:1;
+}
+
+.filename{
+  position:absolute;
+  bottom:5px;
+  left:5px;
+  background:black;
+  color:white;
+  font-size:10px;
+  padding:2px 6px;
+}

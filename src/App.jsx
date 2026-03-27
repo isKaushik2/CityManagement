@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import ReportPage from "./Pages/ReportPage/ReportPage";
 import VolunteerPage from "./Pages/Volunteers/VolunteerPage";
 import BloodDonation from "./Pages/BloodDonation/BloodDonation";
+import Login from "./Pages/Login/login";
+import Signup from "./Pages/SignUp/signUp";
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
         <Route path="/ReportPage" element={<ReportPage />} />
         <Route path="/BloodDonation" element={<BloodDonation />} />
         <Route path="/VolunteerPage" element={<VolunteerPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
       </Routes>
     </main>
   );

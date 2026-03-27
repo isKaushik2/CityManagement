@@ -4,8 +4,9 @@
   box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
 }
+
 .btn {
-  background-color: #2f5ae0;
+  background-color: #4c7dff;
   color: white;
   padding: 14px 25px;
   font-size: 22px;
@@ -15,4 +16,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn:hover {
+  background-color: #365fe0;
+}
+
+:root {
+  --primary: #19d3c5;
+  --primary-dark: #14b8a6;
+  --primary-light: #e6fffb;
+
+  --secondary: #306ee8;
+
+  --bg-dark: #0b2c55;
+  --card-bg: rgba(10, 20, 40, 0.9);
+
+  --text-main: #ffffff;
+  --text-muted: #b0c4de;
+
+  --border: #2a3a5a;
 }

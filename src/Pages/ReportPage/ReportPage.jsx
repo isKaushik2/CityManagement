@@ -1,10 +1,12 @@
 import React from "react";
 import "./ReportPage.css";
-function ReportPage() {
+import FormHeader from "./FormHeader";
+import Form from "./Form";
+import ComplaintWizard from "../ComplaintWizard";
+
+function ReportPage () {
   return (
-    <div>
-      <p>Newaz study lessssssssssssssssssssssssssssssss</p>
-    </div>
+    <ComplaintWizard/>
   );
 }
 

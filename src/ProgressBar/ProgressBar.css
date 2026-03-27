@@ -1,7 +1,7 @@
 .progress-wrapper {
   width: 100%;
   height: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(120, 140, 255, 0.15);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -11,19 +11,18 @@
   border-radius: 999px;
 }
 
-/* Color variants */
 .progress-bar.green {
-  background: linear-gradient(90deg, #22c55e, #4ade80);
+  background: linear-gradient(90deg, #3fbf63, #6ee7a0);
 }
 
 .progress-bar.yellow {
-  background: linear-gradient(90deg, #eab308, #fde047);
+  background: linear-gradient(90deg, #facc15, #fde68a);
 }
 
 .progress-bar.red {
-  background: linear-gradient(90deg, #ef4444, #f87171);
+  background: linear-gradient(90deg, #ff4a4a, #ff7a7a);
 }
 
 .progress-bar.blue {
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  background: linear-gradient(90deg, #4c7dff, #6ea8ff);
 }
