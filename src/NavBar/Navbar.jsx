@@ -2,15 +2,16 @@ import React from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import {Link,useNavigate} from "react-router-dom";
+import { useAuthContext } from "../contexts/AuthContext";
 
 function Navbar(){
   const navigate=useNavigate();
-  const isLoggedIn=localStorage.getItem("loggedIn");
+  const { user, logout } = useAuthContext();
+  const isLoggedIn = user !== null;
 
   const handleLogout=()=>{
-    localStorage.removeItem("loggedIn");
+    logout();
     navigate("/login");
-    window.location.reload();
   };
 
   return(
