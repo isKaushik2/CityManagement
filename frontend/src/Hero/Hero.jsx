@@ -37,15 +37,14 @@ function Hero() {
             <div className="icon">
               <FontAwesomeIcon icon={faTint} />
             </div>
-            <h2>Volunteer</h2>
+            <h2>Blood Donation</h2>
             <h4>
-              Make a difference in your neighborhood.Join community cleanups or
-              mentorship programs.
+              Save lives by contributing to a reliable blood supply in your community.
             </h4>
             <ul>
-              <li>Park Cleanups</li>
-              <li>Senior Support</li>
-              <li>Youth Mentoring</li>
+              <li>Donate Blood</li>
+              <li>Emergency Requests</li>
+              <li>Rare Blood Group Registry</li>
             </ul>
             <button onClick={() => navigate("/BloodDonation")}>
               Find Opportunities

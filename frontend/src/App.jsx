@@ -7,6 +7,7 @@ import VolunteerPage from "./Pages/Volunteers/VolunteerPage";
 import BloodDonation from "./Pages/BloodDonation/BloodDonation";
 import Login from "./Pages/Login/login";
 import Signup from "./Pages/SignUp/signUp";
+import VolunteerForm from "./Pages/Volunteers/VolunteerForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/ReportPage" element={<ReportPage />} />
         <Route path="/BloodDonation" element={<BloodDonation />} />
         <Route path="/VolunteerPage" element={<VolunteerPage />} />
+        <Route path="/VolunteerForm" element={<VolunteerForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 

@@ -1,80 +1,55 @@
 .Volunteer_bg {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgba(5, 20, 35, 0.9), rgba(5, 20, 35, 0.85), rgba(5, 20, 35, 0.95)),
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 20, 35, 0.9),
+      rgba(5, 20, 35, 0.85),
+      rgba(5, 20, 35, 0.95)
+    ),
     url("../../assets/Volunteer-bg.png");
   background-position: center;
   background-size: cover;
   background-blend-mode: darken;
+
   color: white;
+
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 100px 20px 50px 20px;
+  padding-top: 120px;
+  padding-top: 120px;
 }
-
 .head_line {
-  width: 100%;
-  max-width: 600px;
+  width: 50%;
   text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: clamp(24px, 6vw, 60px);
-}
 
+  font-size: 60px;
+}
 .green {
   background: linear-gradient(to left, #00b8a9, #33d1c4, #009688);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .head_line p {
-  font-size: clamp(14px, 4vw, 21px);
+  font-size: 21px;
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .card {
-  width: 100%;
+  width: 80%;
+
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  gap: 30px;
+
+  margin-top: 60px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
-}
-
-/* Tablet */
-@media (min-width: 768px) {
-  .card {
-    gap: 25px;
-    justify-content: space-around;
-  }
-
-  .Vol-card {
-    width: calc(50% - 25px);
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .card {
-    gap: 30px;
-    justify-content: flex-start;
-  }
-
-  .Vol-card {
-    width: calc(25% - 30px);
-  }
-
-  .head_line {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .Volunteer_bg {
-    padding: 120px 50px 60px 50px;
-  }
 }
