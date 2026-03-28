@@ -1,245 +1,286 @@
-.bloodDonationPage{
-  min-height:100vh;
-  background:#0b1f3a;
-  color:white;
-  padding:60px 40px;
-  display:flex;
-  justify-content:center;
+
+.bloodDonationPage {
+  min-height: 100vh;
+  background: #100000;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.container{
-  max-width:1200px;
-  width:100%;
+.container {
+  max-width: 1200px;
+  width: 100%;
 }
 
-.heroSection{
-  display:flex;
-  justify-content:center;
-  text-align:center;
-  margin-bottom:80px;
+.heroSection {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 10px;
 }
 
-.heroText{
-  max-width:600px;
+.heroText {
+  max-width: 100%;
 }
 
-.heroTitle{
-  font-size:48px;
-  font-weight:bold;
-  margin-bottom:15px;
+.heroTitle {
+  font-size: clamp(24px, 6vw, 48px);
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.heroDescription{
-  font-size:18px;
-  color:#b8c2d9;
-  line-height:1.7;
+.heroDescription {
+  font-size: clamp(14px, 4vw, 18px);
+  color: #e0b4b4;
+  line-height: 1.6;
 }
 
-.heroButtons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
+.heroButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
-.donateBtn{
-  background:linear-gradient(135deg,#00c6ff,#0072ff);
-  border:none;
-  padding:14px 26px;
-  border-radius:10px;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  transition:.2s;
+.donateBtn {
+  background: linear-gradient(135deg, #ff4d4d, #b30000);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.donateBtn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(0,198,255,.4);
+.donateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-.bloodStatusSection{
-  margin-top:80px;
+.bloodStatusSection {
+  margin-top: 60px;
+  padding: 0 10px;
 }
 
-.statusTitle{
-  font-size:28px;
-  text-align:center;
-  margin-bottom:30px;
+.statusTitle {
+  font-size: clamp(20px, 5vw, 28px);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .statusCards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .statusCard {
-  background: #12284a;
-  padding: 18px;
+  background: #3a1212;
+  padding: 16px;
   border-radius: 12px;
   text-align: center;
-  transition: 0.25s, box-shadow 0.25s, border 0.25s;
+  transition: 0.25s;
   border: 2px solid transparent;
 }
 
 .statusCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 10px rgba(0,198,255,.4), 0 0 20px rgba(0,198,255,.3);
-  border: 2px solid #00c6ff;
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.4), 0 0 20px rgba(255, 77, 77, 0.3);
+  border: 2px solid #ff4d4d;
 }
 
-.statusPercent{
-  font-size:28px;
-  font-weight:bold;
+.statusPercent {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: bold;
 }
 
-.progressBar{
-  height:10px;
-  background:#08152b;
-  border-radius:6px;
-  margin:8px 0;
-  overflow:hidden;
+.progressBar {
+  height: 10px;
+  background: #1a0505;
+  border-radius: 6px;
+  margin: 8px 0;
+  overflow: hidden;
 }
 
-.progressFill{
-  height:100%;
-  background:linear-gradient(90deg,#00c6ff,#0072ff);
-  transition:width .4s;
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4d4d, #b30000);
+  transition: width 0.4s;
 }
 
-.statusTag{
-  display:inline-block;
-  margin-top:10px;
-  padding:4px 10px;
-  font-size:12px;
-  border-radius:6px;
-  background:#1b3f72;
+.statusTag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  background: #661111;
 }
 
-.eligibilitySection{
-  margin-top:120px;
-  display:flex;
-  justify-content:center;
+.eligibilitySection {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
 }
 
-.eligibilityCardMain{
-  background:#13294b;
-  padding:30px;
-  border-radius:16px;
-  width:420px;
+.eligibilityCardMain {
+  background: #3a1212;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
 }
 
-.eligibilityIntro{
-  color:#b8c2d9;
-  font-size:14px;
-  margin-bottom:25px;
+.eligibilityIntro {
+  color: #e0b4b4;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-.eligibilityItem{
-  display:flex;
-  gap:12px;
-  background:#162f56;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:12px;
+.eligibilityItem {
+  display: flex;
+  gap: 12px;
+  background: #4d1616;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.checkIcon{
-  background:#00c6ff;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
+.checkIcon {
+  background: #ff4d4d;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
-.eligibilityItem p{
-  font-size:12px;
-  color:#b8c2d9;
+.eligibilityItem p {
+  font-size: 12px;
+  color: #e0b4b4;
 }
 
-.questionnaireBtn{
-  width:100%;
-  margin-top:20px;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#1e3a66;
-  color:white;
-  cursor:pointer;
+.questionnaireBtn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #661111;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.questionnaireBtn:hover{
-  background:#244a84;
+.questionnaireBtn:hover {
+  background: #801515;
 }
 
-.popupOverlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow-y: auto;
 }
 
-.popupCard{
-  background:#12284a;
-  padding:25px;
-  border-radius:12px;
-  width:350px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+.popupCard {
+  background: #3a1212;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.popupCard input,.bloodSelect{
-  padding:10px;
-  border-radius:6px;
-  border:none;
-  background:#1b3f72;
-  color:white;
+.popupCard input,
+.bloodSelect {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #661111;
+  color: white;
 }
 
-.popupCard input::placeholder{
-  color:#b8c2d9;
+.popupCard input::placeholder {
+  color: #e0b4b4;
 }
 
-.formButtons{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
+.formButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.cancelBtn{
-  flex:1;
-  background:#2c3f63;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:6px;
-  cursor:pointer;
+.cancelBtn {
+  flex: 1;
+  background: #4d1a1a;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.cancelBtn:hover{
-  background:#3a5382;
+.cancelBtn:hover {
+  background: #663333;
 }
 
-.submitBtn{
-  flex:1;
-  background:#0072ff;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:6px;
-  cursor:pointer;
+.submitBtn {
+  flex: 1;
+  background: #b30000;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.submitBtn:hover{
-  background:#0b63d6;
+.submitBtn:hover {
+  background: #990000;
+}
+
+
+@media (min-width: 768px) {
+  .statusCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroSection {
+    margin-bottom: 80px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .statusCards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .heroSection {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .heroText {
+    max-width: 600px;
+  }
+
+  .eligibilitySection {
+    justify-content: center;
+  }
 }
