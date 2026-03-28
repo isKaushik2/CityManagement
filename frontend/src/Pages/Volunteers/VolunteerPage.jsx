@@ -3,6 +3,7 @@ import "./VolunteerPage.css";
 import Navbar from "../../NavBar/Navbar";
 import VolunteerCard from "./VolunteerCard";
 import Footer from "../../Footer/Footer";
+
 function VolunteerPage() {
   const cards = [
     {
