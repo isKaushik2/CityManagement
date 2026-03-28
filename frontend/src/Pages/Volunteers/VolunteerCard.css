@@ -1,14 +1,12 @@
 .Vol-card {
-  width: 20%;
-  min-width: 300px;
-  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* makes cards equal height */
+  padding: 20px;
   border-radius: 18px;
-
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
-
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   color: white;
   transition: 0.3s;
 }
@@ -18,8 +16,8 @@
 }
 
 .icon-box {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
 
   display: flex;
   align-items: center;
@@ -30,42 +28,40 @@
   border-radius: 12px;
 
   font-size: 22px;
-
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .Vol-card h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
+  font-size: clamp(20px, 5vw, 28px);
+  margin-bottom: 10px;
 }
 
 .Vol-card p {
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: clamp(14px, 4vw, 18px);
+  line-height: 1.4;
   color: #b8c0cc;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
+}
+
+.Vol-card h4 {
+  font-weight: bolder;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
 .vol-btn {
   width: 100%;
-  padding: 12px;
-
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-
   background: transparent;
   color: white;
-
   cursor: pointer;
   transition: 0.3s;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .vol-btn:hover {
   background: #00b8a9;
   border: none;
-}
-h4 {
-  font-weight: bolder;
-  font-size: 22px;
 }

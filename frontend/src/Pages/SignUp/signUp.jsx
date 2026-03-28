@@ -6,10 +6,6 @@ import toast from "react-hot-toast";
 export default function Signup(){
   const navigate=useNavigate();
 
-  // const handleSignup=()=>{
-  //   localStorage.setItem("loggedIn","true");
-  //   navigate("/");
-  // };
 
   const { signup } = useAuthContext();
     const [fields, setFields] = useState({
@@ -25,10 +21,10 @@ export default function Signup(){
       console.log(value);
     }
   
-    const submitHandler = (e) => {
+      const submitHandler = (e) => {
       e.preventDefault();
       signup(fields.name, fields.email, fields.password);
-    }
+      }
 
   return(
     <div className="login-page">
