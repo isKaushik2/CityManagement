@@ -166,21 +166,7 @@
   color: #e0b4b4;
 }
 
-.questionnaireBtn {
-  width: 100%;
-  margin-top: 16px;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #661111;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-.questionnaireBtn:hover {
-  background: #801515;
-}
 
 .popupOverlay {
   position: fixed;
@@ -271,10 +257,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .heroSection {
-    text-align: left;
-    justify-content: flex-start;
-  }
+
 
   .heroText {
     max-width: 600px;

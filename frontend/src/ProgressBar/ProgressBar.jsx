@@ -5,7 +5,7 @@ function ProgressBar({ value, color }) {
   return (
     <div className="progress-wrapper">
       <div
-        className={`progress-bar ${color}`}
+        className={`progress-bar1 ${color}`}
         style={{ width: `${safeValue}%` }}
       />
     </div>

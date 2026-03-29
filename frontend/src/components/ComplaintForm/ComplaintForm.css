@@ -81,8 +81,19 @@
 }
 
 .close-btn{
-  width: 45px;
-  padding: 5px;
+  padding:12px 12px;
+  border:none;
+  border-radius:10px;
+  background: #19d3c5;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.close-btn:hover{
+  background: #14b8a6;
 }
 
 .buttons{

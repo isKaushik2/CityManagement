@@ -81,7 +81,7 @@ export default function Signup(){
           </div>
         </div>
 
-        <div className="input-group">
+        {/* <div className="input-group">
           <label>Confirm Password</label>
           <div className="input-box">
             <span className="icon">🔒</span>
@@ -93,7 +93,7 @@ export default function Signup(){
             onChange={inputHandler}
             />
           </div>
-        </div>
+        </div> */}
 
         <button className="login-btn" type="submit">
           SIGN UP

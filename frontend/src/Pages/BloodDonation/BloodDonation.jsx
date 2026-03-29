@@ -86,10 +86,6 @@ function BloodDonation(){
                 <p>Valid government-issued photo ID required.</p>
               </div>
             </div>
-
-            <button className="questionnaireBtn">
-              View Full Medical Questionnaire
-            </button>
           </div>
         </div>
       </div>

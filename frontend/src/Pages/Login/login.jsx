@@ -74,10 +74,10 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="checkbox">
+          {/* <div className="checkbox">
             <input type="checkbox" />
             <span>Keep me logged in for 30 days</span>
-          </div>
+          </div> */}
 
           <button className="login-btn" type="submit">
             LOG IN

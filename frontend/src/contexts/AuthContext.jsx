@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
       } catch (err) {
         if (err.response) {
           setUser(null);
-          navigate("/");
+          // navigate("/");
         } else {
           toast.error("Something went wrong");
         }
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
         navigate("/");
         toast.success("Signup successful");
     } catch (error) {
-        toast.error("Something went wrong");
+        toast.error(error.response.data.message);
     }
   }
 
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
         navigate("/");
         toast.success("Login successful");
     } catch (error) {
-        toast.error("Something went wrong");
+        toast.error(error.response.data.message);
     }
   }
 

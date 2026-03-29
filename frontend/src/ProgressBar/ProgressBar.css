@@ -6,23 +6,24 @@
   overflow: hidden;
 }
 
-.progress-bar {
+.progress-bar1 {
+  
   height: 100%;
   border-radius: 999px;
 }
 
-.progress-bar.green {
+.progress-bar1.green {
   background: linear-gradient(90deg, #3fbf63, #6ee7a0);
 }
 
-.progress-bar.yellow {
+.progress-bar1.yellow {
   background: linear-gradient(90deg, #facc15, #fde68a);
 }
 
-.progress-bar.red {
+.progress-bar1.red {
   background: linear-gradient(90deg, #ff4a4a, #ff7a7a);
 }
 
-.progress-bar.blue {
+.progress-bar1.blue {
   background: linear-gradient(90deg, #4c7dff, #6ea8ff);
 }
