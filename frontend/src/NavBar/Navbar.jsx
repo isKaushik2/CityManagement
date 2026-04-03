@@ -29,9 +29,9 @@ function Navbar() {
 
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
         <li><NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink></li>
-        <li><NavLink to="/complaints" onClick={() => setMenuOpen(false)}>Complaints</NavLink></li>
-        <li><NavLink to="/volunteer" onClick={() => setMenuOpen(false)}>Volunteer</NavLink></li>
-        <li><NavLink to="/blood-donor" onClick={() => setMenuOpen(false)}>Blood donor</NavLink></li>
+        <li><NavLink to="/ReportPage" onClick={() => setMenuOpen(false)}>Complaints</NavLink></li>
+        <li><NavLink to="/VolunteerPage" onClick={() => setMenuOpen(false)}>Volunteer</NavLink></li>
+        <li><NavLink to="/BloodDonation" onClick={() => setMenuOpen(false)}>Blood donor</NavLink></li>
         <li><NavLink to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</NavLink></li>
 
         {isAdmin && (

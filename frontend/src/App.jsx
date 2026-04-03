@@ -1,5 +1,5 @@
 import "./App.css";
-
+import Navbar from "./NavBar/Navbar";
 import Home from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import ReportPage from "./Pages/ReportPage/ReportPage";
@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <main className="main-content">
+      <Navbar/> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<PrivateRoute />}>

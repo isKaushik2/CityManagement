@@ -22,6 +22,7 @@ export const signup = async (req, res) => {
       {
         id: newUser.id,
         email: newUser.email,
+        role: newUser.role,
       },
       process.env.JWT_SECRET,
       { expiresIn: lifetime },
@@ -34,7 +35,12 @@ export const signup = async (req, res) => {
       sameSite: "none",
       path: "/",
     });
-    return res.status(200).json(newUser);
+    return res.status(200).json({
+      _id: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
+      role: newUser.role,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -60,6 +66,7 @@ export const login = async (req, res) => {
     {
       id: user.id,
       email: user.email,
+      role: user.role,
     },
     process.env.JWT_SECRET,
     { expiresIn: lifetime },
@@ -72,7 +79,12 @@ export const login = async (req, res) => {
     sameSite: "none",
     path: "/",
   });
-  return res.status(200).json(user);
+  return res.status(200).json({
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  });
 };
 
 export const logout = (req, res) => {
