@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContext";
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, logout } = useAuthContext();
   const isLoggedIn = user !== null;
   const isAdmin = user?.role === "admin";
@@ -17,8 +18,10 @@ function Navbar() {
     navigate("/login");
   };
 
+  const isBloodPage = location.pathname === "/BloodDonation";
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isBloodPage ? "navbar-blood" : ""}`}>
       <NavLink to="/">
         <img src={logo} alt="City Connect Logo" className="nav-logo" />
       </NavLink>
