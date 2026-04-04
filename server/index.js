@@ -2,8 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import AuthRouter from "./Routes/AuthRouter.js"
-import UserRouter from "./Routes/UserRouter.js"
+import AuthRouter from "./Routes/AuthRouter.js";
+import UserRouter from "./Routes/UserRouter.js";
+import eventRoute from "./Routes/eventRoute.js";
+import volunteerRoute from "./Routes/volunteerRoute.js";
 import log from "./Middlewares/logger.js";
 
 const PORT = process.env.PORT;
@@ -24,13 +26,15 @@ app.use(
 );
 app.use(log);
 
-app.use('/auth', AuthRouter);
-app.use('/user', UserRouter)
+app.use("/auth", AuthRouter);
+app.use("/user", UserRouter);
+app.use("/api", eventRoute);
+app.use("/api", volunteerRoute);
 
 app.get("/", (req, res) => {
-    res.send("Hello, world");
-})
+  res.send("Hello, world");
+});
 
 app.listen(PORT, (req, res) => {
-    console.log(`Server listening on port ${PORT}`);
-})
+  console.log(`Server listening on port ${PORT}`);
+});

@@ -3,73 +3,24 @@ import "./VolunteerPage.css";
 import Navbar from "../../NavBar/Navbar";
 import VolunteerCard from "./VolunteerCard";
 import Footer from "../../Footer/Footer";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function VolunteerPage() {
-  const cards = [
-    {
-      id: 1,
-      type: "Environmental",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 2,
-      type: "Senior",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 3,
-      type: "Comunity",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 4,
-      type: "Youth",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 5,
-      type: "Senior",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 6,
-      type: "Youth",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 7,
-      type: "Comunity",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 8,
-      type: "Senior",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-    {
-      id: 9,
-      type: "Comunity",
-      description:
-        "Help us save environment. Just donate us your kidney. Clean the park do't be like that",
-      location: "Banasree,Dhaka",
-    },
-  ];
+  const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000/api/events");
+        setEvents(res.data);
+      } catch (error) {
+        console.log("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
   return (
     <div>
       <Navbar />
@@ -84,9 +35,14 @@ function VolunteerPage() {
           </p>
         </div>
         <div className="card">
-          {cards.map((vcard) => (
-            <VolunteerCard vcard={vcard} key={vcard.id} />
+          {events.map((event) => (
+            <VolunteerCard vcard={event} key={event._id} />
           ))}
+        </div>
+        <div className="create-event-btn">
+          <button onClick={() => navigate("/create-event")}>
+            + Create Event
+          </button>
         </div>
       </div>
       <Footer />
