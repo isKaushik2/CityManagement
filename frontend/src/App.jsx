@@ -8,6 +8,7 @@ import VolunteerForm from "./Pages/Volunteers/VolunteerForm";
 import BloodDonation from "./Pages/BloodDonation/BloodDonation";
 import Login from "./Pages/Login/login";
 import Signup from "./Pages/SignUp/signUp";
+import CitizenDashboard from "./CitizenDashboard/CitizenDashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import PublicRoute from "./utils/PublicRoute";
 import { Toaster } from "react-hot-toast";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/BloodDonation" element={<BloodDonation />} />
           <Route path="/VolunteerPage" element={<VolunteerPage />} />
           <Route path="/VolunteerForm" element={<VolunteerForm />} />
+          <Route path="/dashboard" element={<CitizenDashboard />} />
         </Route>
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<Login />} />
