@@ -18,20 +18,38 @@ export const ComplaintProvider = ({ children }) => {
 
   const submitComplaint = async (submitData) => {
     try {
-      const response = await axiosInstance.post("/complaint/submit", submitData);
+      const formData = new FormData();
+
+      formData.append("category", submitData.category);
+      formData.append("location", submitData.location);
+      formData.append("description", submitData.description);
+      formData.append("urgency", submitData.urgency);
+
+      // append multiple files
+      submitData.evidence.forEach((file) => {
+        formData.append("evidence", file);
+      });
+      const response = await axiosInstance.post(
+        "/complaint/submit",
+        formData,
+      );
       const { data } = response;
       toast.success(data.message);
     } catch (error) {
       if (error.response) {
         toast.error(error.response.data.message);
       } else {
+        console.log(error);
+        
         toast.error("Something went wrong");
       }
     }
   };
 
   return (
-    <ComplaintContext.Provider value={{ complaint, setComplaint, submitComplaint }}>
+    <ComplaintContext.Provider
+      value={{ complaint, setComplaint, submitComplaint }}
+    >
       {children}
     </ComplaintContext.Provider>
   );

@@ -6,6 +6,7 @@ import { useComplaintContext } from "../contexts/ComplaintContext";
 
 const Step2Location = ({ nextStep, prevStep, onLocationChange }) => {
   const [location, setLocation] = useState(null);
+  const { setComplaint } = useComplaintContext();
 
   const handleLocationChange = (loc) => {
     setLocation(loc);
@@ -17,6 +18,14 @@ const Step2Location = ({ nextStep, prevStep, onLocationChange }) => {
       alert("Please select a location on the map before continuing.");
       return;
     }
+    setComplaint((prev) =>{
+      const updated = {
+        ...prev,
+        location: location.address
+      }
+      console.log(updated);
+      return updated;
+    });
     nextStep();
   };
 
