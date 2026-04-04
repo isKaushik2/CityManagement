@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContext";
 
-function Navbar(){
+function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, logout } = useAuthContext();
   const isLoggedIn = user !== null;
+  const isAdmin = user?.role === "admin";
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,30 +18,45 @@ function Navbar(){
     navigate("/login");
   };
 
-  return(
-    <nav className="navbar">
-      <img src={logo} alt="City Connect Logo" className="nav-logo"/>
+  const isBloodPage = location.pathname === "/BloodDonation";
 
-      {/* Hamburger */}
+  return (
+    <nav className={`navbar ${isBloodPage ? "navbar-blood" : ""}`}>
+      <NavLink to="/">
+        <img src={logo} alt="City Connect Logo" className="nav-logo" />
+      </NavLink>
+
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
+        {menuOpen ? "✕" : "☰"}
       </div>
 
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-        <li>Home</li>
-        <li>Program</li>
-        <li>About us</li>
-        <li>Contact us</li>
+        <li><NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink></li>
+        <li><NavLink to="/ReportPage" onClick={() => setMenuOpen(false)}>Complaints</NavLink></li>
+        <li><NavLink to="/VolunteerPage" onClick={() => setMenuOpen(false)}>Volunteer</NavLink></li>
+        <li><NavLink to="/BloodDonation" onClick={() => setMenuOpen(false)}>Blood donor</NavLink></li>
+        <li><NavLink to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</NavLink></li>
 
-        {!isLoggedIn ? (
+        {isAdmin && (
           <li>
-            <Link to="/login">
-              <button className="nav-btn">Login</button>
-            </Link>
+            <NavLink to="/admin" className="admin-link" onClick={() => setMenuOpen(false)}>
+              Admin panel
+            </NavLink>
           </li>
+        )}
+
+        {isLoggedIn ? (
+          <>
+            <li className="nav-user-name">{user.name}</li>
+            <li>
+              <button className="nav-btn logout" onClick={handleLogout}>Logout</button>
+            </li>
+          </>
         ) : (
           <li>
-            <button className="nav-btn" onClick={handleLogout}>Logout</button>
+            <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+              <button className="nav-btn">Login</button>
+            </NavLink>
           </li>
         )}
       </ul>
