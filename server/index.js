@@ -1,9 +1,11 @@
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import AuthRouter from "./Routes/AuthRouter.js"
 import UserRouter from "./Routes/UserRouter.js"
+import DonorRouter from "./Routes/DonorRoutes.js";
 import log from "./Middlewares/logger.js";
 
 const PORT = process.env.PORT;
@@ -25,7 +27,8 @@ app.use(
 app.use(log);
 
 app.use('/auth', AuthRouter);
-app.use('/user', UserRouter)
+app.use('/user', UserRouter);
+app.use('/donors', DonorRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello, world");
