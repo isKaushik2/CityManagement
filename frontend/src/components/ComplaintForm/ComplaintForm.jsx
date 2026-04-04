@@ -2,10 +2,22 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ComplaintForm.css";
 import CategoryOption from "../CategoryOption/CategoryOption";
+import { useComplaintContext } from "../../contexts/ComplaintContext";
 
 const ComplaintForm = ({ nextStep }) => {
   const [category, setCategory] = useState("Infrastructure");
   const navigate = useNavigate();
+  const { complaint, setComplaint } = useComplaintContext();
+  const handleNext = () => {
+    setComplaint((prev) => {
+      return {
+        ...prev,
+        category: category,
+      };
+    });
+    nextStep();
+    // console.log(complaint);
+  };
 
   const categories = [
     {
@@ -46,7 +58,12 @@ const ComplaintForm = ({ nextStep }) => {
           <h2>Submit Complaint</h2>
         </div>
 
-        <button onClick={() => {navigate("/")}} className="close-btn">
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          className="close-btn"
+        >
           <span className="material-symbols-outlined">close</span>
         </button>
       </header>
@@ -83,10 +100,16 @@ const ComplaintForm = ({ nextStep }) => {
         </div>
 
         <div className="form-footer">
-          
-          <button onClick={() => {navigate(-1)}} className="prev">Cancel</button>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+            className="prev"
+          >
+            Cancel
+          </button>
 
-          <button onClick={nextStep} className="next">
+          <button onClick={handleNext} className="next">
             Next Step →
           </button>
         </div>

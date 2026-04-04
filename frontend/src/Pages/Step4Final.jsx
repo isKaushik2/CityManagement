@@ -3,10 +3,30 @@ import Header from "../components/Header/Header";
 import UrgencySelector from "../components/UrgencySelector/UrgencySelector";
 import ContactForm from "../components/ContactForm/ContactForm";
 import "./Step4Final.css";
+import { useComplaintContext } from "../contexts/ComplaintContext";
 
 const Step4Final = ({ prevStep }) => {
 
   const [urgency, setUrgency] = useState("Urgent");
+  const { complaint, setComplaint, submitComplaint } = useComplaintContext();
+  const [description, setDescription] = useState("");
+  const handleChange = (e) => {
+    const {value} = e.target;
+    setDescription(value);
+  }
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const updatedComplaint = {
+    ...complaint,
+    description,
+    urgency
+  };
+
+  setComplaint(updatedComplaint);
+  submitComplaint(updatedComplaint);
+};
 
   return (
     <div className="page">
@@ -39,6 +59,8 @@ const Step4Final = ({ prevStep }) => {
           <label>Detailed Description</label>
 
           <textarea
+            name="description"
+            onChange={handleChange}
             placeholder="Describe what happened..."
           ></textarea>
 
@@ -60,7 +82,7 @@ const Step4Final = ({ prevStep }) => {
             ← Previous step
           </button>
 
-          <button className="next">
+          <button onClick={handleSubmit} className="next">
             Submit Complaint →
           </button>
 

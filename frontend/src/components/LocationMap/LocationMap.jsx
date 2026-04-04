@@ -1,7 +1,12 @@
 import React from "react";
 import "./LocationMap.css";
 
-const LocationMap = () => {
+const LocationMap = ({location, setLocation}) => {
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setLocation(value);
+  }
 
   return (
     <div>
@@ -23,6 +28,7 @@ const LocationMap = () => {
           <input
             type="text"
             placeholder="Enter street address, city, or landmark"
+            onChange={handleChange}
           />
 
         </div>

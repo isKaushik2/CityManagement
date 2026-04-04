@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import StepHeader from "../components/StepHeader/StepHeader";
 import LocationMap from "../components/LocationMap/LocationMap";
 import "./Step2Location.css";
+import { useComplaintContext } from "../contexts/ComplaintContext";
 
 const Step2Location = ({ nextStep, prevStep }) => {
+  const [location, setLocation] = useState("");
+  const { setComplaint } = useComplaintContext();
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setComplaint((prev) => {
+      const updated = {
+        ...prev,
+        location
+      };
+      console.log(updated);
+      return updated
+    });
+    nextStep();
+  }
+
   return (
     <div className="page">
 
@@ -31,7 +48,11 @@ const Step2Location = ({ nextStep, prevStep }) => {
           </div>
 
 
-          <LocationMap />
+          <
+            LocationMap 
+            location = {location}
+            setLocation = {setLocation}
+          />
 
           <div className="buttons">
 
@@ -39,7 +60,7 @@ const Step2Location = ({ nextStep, prevStep }) => {
             ← Previous Step
           </button>
 
-          <button onClick={nextStep} className="next">
+          <button onClick={handleSubmit} className="next">
             Next Step →
           </button>
 

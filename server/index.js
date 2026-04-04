@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import AuthRouter from "./Routes/AuthRouter.js"
 import UserRouter from "./Routes/UserRouter.js"
+import ComplaintRouter from "./Routes/ComplaintRouter.js"
 import log from "./Middlewares/logger.js";
 
 const PORT = process.env.PORT;
@@ -15,6 +16,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
@@ -25,7 +27,8 @@ app.use(
 app.use(log);
 
 app.use('/auth', AuthRouter);
-app.use('/user', UserRouter)
+app.use('/user', UserRouter);
+app.use('/complaint', ComplaintRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello, world");

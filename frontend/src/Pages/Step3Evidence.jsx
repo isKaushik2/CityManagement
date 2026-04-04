@@ -3,10 +3,21 @@ import Header from "../components/Header/Header";
 import UploadBox from "../components/UploadBox/UploadBox";
 import MediaPreview from "../components/MediaPreview/MediaPreview";
 import "./Step3Evidence.css";
+import { useComplaintContext } from "../contexts/ComplaintContext";
 
 const Step3Evidence = ({ nextStep, prevStep }) => {
 
   const [files, setFiles] = useState([]);
+  const { setComplaint } = useComplaintContext();
+  const handleSubmit = () => {
+    setComplaint((prev) => {
+      return {
+        ...prev,
+        evidence: files
+      }
+    });
+    nextStep();
+  }
 
   return (
     <div className="page">
@@ -59,7 +70,7 @@ const Step3Evidence = ({ nextStep, prevStep }) => {
             ← Previous Step
           </button>
 
-          <button onClick={nextStep} className="next">
+          <button onClick={handleSubmit} className="next">
             Next Step →
           </button>
 

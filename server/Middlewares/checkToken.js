@@ -7,18 +7,21 @@ const checkToken = (req, res, next) => {
     return res.status(401).json({ error: "Invalid token" });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
-    if (err) {
-      res.clearCookie("token", {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-        path: "/",
-      });
-      return res.status(401).json({ error: "Invalid token" });
-    }
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    req.user = decoded;   // ✅ THIS LINE IS THE KEY
+
     next();
-  });
+  } catch (err) {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",
+    });
+    return res.status(401).json({ error: "Invalid token" });
+  }
 };
 
 export default checkToken;
