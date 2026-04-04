@@ -1,7 +1,9 @@
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
 import AuthRouter from "./Routes/AuthRouter.js";
 import UserRouter from "./Routes/UserRouter.js";
 import eventRoute from "./Routes/eventRoute.js";
@@ -29,7 +31,7 @@ app.use(log);
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
 app.use("/api", eventRoute);
-app.use("/api", volunteerRoute);
+app.use("/app", volunteerRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello, world");

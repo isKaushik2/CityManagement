@@ -1,6 +1,5 @@
 import Event from "../Models/eventModel.js";
 
-// CREATE EVENT
 export const createEvent = async (req, res) => {
   try {
     const newEvent = new Event(req.body);
@@ -12,7 +11,6 @@ export const createEvent = async (req, res) => {
   }
 };
 
-// GET ALL EVENTS
 export const getAllEvents = async (req, res) => {
   try {
     const events = await Event.find();
@@ -27,7 +25,6 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
-// DELETE EVENT
 export const deleteEvent = async (req, res) => {
   try {
     const id = req.params.id;

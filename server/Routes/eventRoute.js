@@ -7,13 +7,10 @@ import {
 
 const route = express.Router();
 
-// CREATE EVENT
 route.post("/events", createEvent);
 
-// GET ALL EVENTS
 route.get("/events", getAllEvents);
 
-// DELETE EVENT
 route.delete("/events/:id", deleteEvent);
 
 export default route;

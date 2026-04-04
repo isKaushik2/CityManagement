@@ -1,6 +1,5 @@
 import Volunteer from "../Models/volunteerModel.js";
 
-// CREATE VOLUNTEER (apply for event)
 export const createVolunteer = async (req, res) => {
   try {
     const newVolunteer = new Volunteer(req.body);
@@ -13,7 +12,6 @@ export const createVolunteer = async (req, res) => {
   }
 };
 
-// GET VOLUNTEERS BY EVENT (IMPORTANT FOR ADMIN DASHBOARD)
 export const getVolunteersByEvent = async (req, res) => {
   try {
     const eventId = req.params.eventId;
