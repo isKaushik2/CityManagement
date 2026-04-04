@@ -7,6 +7,8 @@ import AuthRouter from "./Routes/AuthRouter.js"
 import UserRouter from "./Routes/UserRouter.js"
 import ComplaintRouter from "./Routes/ComplaintRouter.js"
 import DonorRouter from "./Routes/DonorRoutes.js";
+import eventRoute from "./Routes/eventRoute.js";
+import volunteerRoute from "./Routes/volunteerRoute.js";
 import log from "./Middlewares/logger.js";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
@@ -46,11 +48,13 @@ app.use('/auth', AuthRouter);
 app.use('/user', UserRouter);
 app.use('/complaint', ComplaintRouter);
 app.use('/donors', DonorRouter);
+app.use("/api", eventRoute);
+app.use("/app", volunteerRoute);
 
 app.get("/", (req, res) => {
-    res.send("Hello, world");
-})
+  res.send("Hello, world");
+});
 
 app.listen(PORT, (req, res) => {
-    console.log(`Server listening on port ${PORT}`);
-})
+  console.log(`Server listening on port ${PORT}`);
+});

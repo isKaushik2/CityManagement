@@ -12,6 +12,7 @@ import CitizenDashboard from "./CitizenDashboard/CitizenDashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import PublicRoute from "./utils/PublicRoute";
 import { Toaster } from "react-hot-toast";
+import CreateEvent from "./Pages/Volunteers/CreateEvent";
 
 function App() {
   const location = useLocation();
@@ -26,8 +27,9 @@ function App() {
           <Route path="/ReportPage" element={<ReportPage />} />
           <Route path="/BloodDonation" element={<BloodDonation />} />
           <Route path="/VolunteerPage" element={<VolunteerPage />} />
-          <Route path="/VolunteerForm" element={<VolunteerForm />} />
+          <Route path="/VolunteerForm/:eventId" element={<VolunteerForm />} />
           <Route path="/dashboard" element={<CitizenDashboard />} />
+          <Route path="/create-event" element={<CreateEvent />} />
         </Route>
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<Login />} />

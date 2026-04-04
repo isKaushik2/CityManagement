@@ -9,26 +9,27 @@ import {
 import "./VolunteerCard.css";
 import { useNavigate } from "react-router-dom";
 function VolunteerCard({ vcard }) {
+  const iconMap = {
+    Environmental: faTree,
+    Senior: faPersonCane,
+    Community: faHouseFlag,
+    Educational: faGraduationCap,
+  };
   const navigate = useNavigate();
   return (
     <div className="Vol-card">
       <div className="icon-box">
-        {vcard.type === "Environmental" ? (
-          <FontAwesomeIcon icon={faTree} />
-        ) : vcard.type === "Senior" ? (
-          <FontAwesomeIcon icon={faPersonCane} />
-        ) : vcard.type === "Comunity" ? (
-          <FontAwesomeIcon icon={faHouseFlag} />
-        ) : (
-          <FontAwesomeIcon icon={faGraduationCap} />
-        )}
+        <FontAwesomeIcon icon={iconMap[vcard.type]} />
       </div>
       <h2>{vcard.type}</h2>
       <p>{vcard.description}</p>
       <p>
         <h4>Location</h4> {vcard.location}
       </p>
-      <button className="vol-btn" onClick={() => navigate("/VolunteerForm")}>
+      <button
+        className="vol-btn"
+        onClick={() => navigate(`/VolunteerForm/${vcard._id}`)}
+      >
         Enroll me
       </button>
     </div>

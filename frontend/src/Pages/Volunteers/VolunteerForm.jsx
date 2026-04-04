@@ -1,10 +1,37 @@
-import React from "react";
 import "./VolunteerForm.css";
 import Footer from "../../Footer/Footer";
 import Navbar from "../../NavBar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 function VolunteerForm() {
+  const { eventId } = useParams();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:8000/api/volunteers", {
+        ...formData,
+        eventId, // 👈 link to event
+      });
+
+      alert("Successfully registered as volunteer!");
+      navigate("/VolunteerPage");
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -42,20 +69,33 @@ function VolunteerForm() {
         <div className="formCardV">
           <h2>Volunteer Registration</h2>
 
-          <div className="row">
-            <input type="text" placeholder="Full Name" />
-            <input type="text" placeholder="Phone Number" />
-          </div>
+          <form onSubmit={submitForm}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              onChange={handleChange}
+              required
+            />
 
-          <input type="email" placeholder="Email Address" />
-          <textarea placeholder="Home Address"></textarea>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              onChange={handleChange}
+              required
+            />
 
-          <button className="vForm" onClick={() => navigate("/VolunteerPage")}>
-            Submit Application ➜
-          </button>
-          <p className="terms">
-            By submitting, you agree to the Metropolis citizen service protocol.
-          </p>
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              onChange={handleChange}
+              required
+            />
+
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
       <Footer />
