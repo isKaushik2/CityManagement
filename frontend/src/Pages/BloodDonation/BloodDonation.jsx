@@ -1,51 +1,72 @@
 import "./BloodDonation.css";
-import { useState } from "react";
-
-const bloodTypes = [
-  { type: "O-",  count: 18,  tag: "CRITICAL" },
-  { type: "A-",  count: 82,  tag: "STABLE" },
-  { type: "B-",  count: 34,  tag: "LOW" },
-  { type: "AB+", count: 95,  tag: "OPTIMAL" },
-  { type: "O+",  count: 60,  tag: "STABLE" },
-  { type: "A+",  count: 45,  tag: "LOW" },
-  { type: "B+",  count: 70,  tag: "STABLE" },
-  { type: "AB-", count: 12,  tag: "CRITICAL" },
-];
-
-const mockDonors = [
-  { id: 1, name: "Rahim Khan",   initials: "RK", blood: "O+",  district: "Dhaka",      age: 28, lastDonated: "2 months ago", phone: "+880 1711-223344" },
-  { id: 2, name: "Fatema Akter", initials: "FA", blood: "A+",  district: "Chittagong", age: 24, lastDonated: "4 months ago", phone: "+880 1812-334455" },
-  { id: 3, name: "Milon Sarkar", initials: "MS", blood: "B-",  district: "Sylhet",     age: 31, lastDonated: "1 month ago",  phone: "+880 1911-445566" },
-  { id: 4, name: "Nila Begum",   initials: "NB", blood: "O-",  district: "Rajshahi",   age: 26, lastDonated: "3 months ago", phone: "+880 1755-556677" },
-  { id: 5, name: "Karim Uddin",  initials: "KU", blood: "AB+", district: "Khulna",     age: 35, lastDonated: "5 months ago", phone: "+880 1688-667788" },
-];
+import { useState, useEffect } from "react";
+import api from "../../utils/AxiosInstance";
+import toast from "react-hot-toast";
 
 const districts = [
   "Any district",
-  "Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna",
+  "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Sylhet",
   "Barisal", "Rangpur", "Mymensingh",
 ];
 
 const bloodGroups = ["Any blood group", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
 
+const getInitials = (name) =>
+  name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2);
+
+const getTag = (count) => {
+  if (count <= 5)  return "CRITICAL";
+  if (count <= 20) return "LOW";
+  if (count <= 50) return "STABLE";
+  return "OPTIMAL";
+};
+
 function BloodDonation() {
+  const [bloodCounts, setBloodCounts]       = useState([]);
+  const [donors, setDonors]                 = useState([]);
+  const [loadingCounts, setLoadingCounts]   = useState(true);
+  const [loadingDonors, setLoadingDonors]   = useState(false);
   const [showForm, setShowForm]             = useState(false);
   const [searchBlood, setSearchBlood]       = useState("Any blood group");
   const [searchDistrict, setSearchDistrict] = useState("Any district");
   const [searched, setSearched]             = useState(false);
   const [revealedPhones, setRevealedPhones] = useState({});
+  const [submitting, setSubmitting]         = useState(false);
 
   const [form, setForm] = useState({
     name: "", phone: "", blood: "", district: "", age: "", lastDonated: "",
   });
 
-  const handleSearch = () => setSearched(true);
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const { data } = await api.get("/donors/counts");
+        setBloodCounts(data);
+      } catch (err) {
+        toast.error("Failed to load blood supply data.");
+      } finally {
+        setLoadingCounts(false);
+      }
+    };
+    fetchCounts();
+  }, []);
 
-  const filteredDonors = mockDonors.filter((d) => {
-    const bloodMatch    = searchBlood    === "Any blood group" || d.blood    === searchBlood;
-    const districtMatch = searchDistrict === "Any district"    || d.district === searchDistrict;
-    return bloodMatch && districtMatch;
-  });
+  const handleSearch = async () => {
+    setLoadingDonors(true);
+    setSearched(true);
+    try {
+      const params = {};
+      if (searchBlood    !== "Any blood group") params.bloodGroup = searchBlood;
+      if (searchDistrict !== "Any district")    params.district   = searchDistrict;
+
+      const { data } = await api.get("/donors", { params });
+      setDonors(data);
+    } catch (err) {
+      toast.error("Failed to search donors.");
+    } finally {
+      setLoadingDonors(false);
+    }
+  };
 
   const togglePhone = (id) =>
     setRevealedPhones((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -53,17 +74,45 @@ function BloodDonation() {
   const handleFormChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = () => {
-    // TODO: POST to /api/donors
-    console.log(form);
-    setShowForm(false);
+  const handleSubmit = async () => {
+   if (!form.name || !form.phone || !form.blood || !form.district || !form.age) {
+     toast.error("Please fill in all required fields.");
+     return;
+   }
+
+   if (Number(form.age) < 18 || Number(form.age) > 65) {
+     toast.error("Age must be between 18 and 65.");
+     return;
+   }
+    setSubmitting(true);
+    try {
+      await api.post("/donors", {
+        name:        form.name,
+        phone:       form.phone,
+        bloodGroup:  form.blood,
+        district:    form.district,
+        age:         Number(form.age),
+        lastDonated: form.lastDonated || null,
+      });
+      toast.success("You are now registered as a donor!");
+      setShowForm(false);
+      setForm({ name: "", phone: "", blood: "", district: "", age: "", lastDonated: "" });
+
+      const { data } = await api.get("/donors/counts");
+      setBloodCounts(data);
+    } catch (err) {
+      const msg = err.response?.data?.message || "Registration failed.";
+      toast.error(msg);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="bloodDonationPage">
       <div className="container">
 
-        {/* Hero */}
+       
         <div className="heroSection">
           <div className="heroText">
             <h1 className="heroTitle">
@@ -81,23 +130,30 @@ function BloodDonation() {
           </div>
         </div>
 
-        {/* Blood supply status */}
+        
         <div className="bloodStatusSection">
           <h2 className="statusTitle">Real-time blood supply status</h2>
-          <div className="statusCards">
-            {bloodTypes.map((blood) => (
-              <div className="statusCard" key={blood.type}>
-                <h3>{blood.type}</h3>
-                <p className="statusCount">{blood.count} donors</p>
-                <span className={`statusTag tag-${blood.tag.toLowerCase()}`}>
-                  {blood.tag}
-                </span>
-              </div>
-            ))}
-          </div>
+          {loadingCounts ? (
+            <p style={{ textAlign: "center", color: "#e0b4b4" }}>Loading...</p>
+          ) : (
+            <div className="statusCards">
+              {bloodCounts.map((blood) => {
+                const tag = getTag(blood.count);
+                return (
+                  <div className="statusCard" key={blood.type}>
+                    <h3>{blood.type}</h3>
+                    <p className="statusCount">{blood.count} donors</p>
+                    <span className={`statusTag tag-${tag.toLowerCase()}`}>
+                      {tag}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        {/* Search donors */}
+        
         <div className="searchSection">
           <h2 className="searchTitle">Find a donor</h2>
           <p className="searchSub">
@@ -116,42 +172,51 @@ function BloodDonation() {
                 {districts.map((d) => <option key={d}>{d}</option>)}
               </select>
             </div>
-            <button className="searchBtn" onClick={handleSearch}>Search</button>
+            <button className="searchBtn" onClick={handleSearch} disabled={loadingDonors}>
+              {loadingDonors ? "Searching..." : "Search"}
+            </button>
           </div>
 
           {searched && (
             <div className="donorResults">
-              <p className="resultsCount">
-                {filteredDonors.length} donor{filteredDonors.length !== 1 ? "s" : ""} found
-              </p>
-              {filteredDonors.length === 0 ? (
-                <div className="noResults">No donors found for this search.</div>
+              {loadingDonors ? (
+                <p style={{ color: "#e0b4b4", fontSize: "14px" }}>Searching...</p>
               ) : (
-                filteredDonors.map((donor) => (
-                  <div className="donorCard" key={donor.id}>
-                    <div className="donorLeft">
-                      <div className="donorAvatar">{donor.initials}</div>
-                      <div>
-                        <div className="donorName">{donor.name}</div>
-                        <div className="donorMeta">
-                          {donor.district} · last donated {donor.lastDonated} · age {donor.age}
+                <>
+                  <p className="resultsCount">
+                    {donors.length} donor{donors.length !== 1 ? "s" : ""} found
+                  </p>
+                  {donors.length === 0 ? (
+                    <div className="noResults">No donors found for this search.</div>
+                  ) : (
+                    donors.map((donor) => (
+                      <div className="donorCard" key={donor._id}>
+                        <div className="donorLeft">
+                          <div className="donorAvatar">{getInitials(donor.name)}</div>
+                          <div>
+                            <div className="donorName">{donor.name}</div>
+                            <div className="donorMeta">
+                              {donor.district} · age {donor.age}
+                              {donor.lastDonated && ` · last donated ${new Date(donor.lastDonated).toLocaleDateString()}`}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="donorRight">
+                          <span className="bloodBadge">{donor.bloodGroup}</span>
+                          <button className="phoneBtn" onClick={() => togglePhone(donor._id)}>
+                            {revealedPhones[donor._id] ? donor.phone : "Show number"}
+                          </button>
                         </div>
                       </div>
-                    </div>
-                    <div className="donorRight">
-                      <span className="bloodBadge">{donor.blood}</span>
-                      <button className="phoneBtn" onClick={() => togglePhone(donor.id)}>
-                        {revealedPhones[donor.id] ? donor.phone : "Show number"}
-                      </button>
-                    </div>
-                  </div>
-                ))
+                    ))
+                  )}
+                </>
               )}
             </div>
           )}
         </div>
 
-        {/* Eligibility */}
+        
         <div className="eligibilitySection">
           <div className="eligibilityCardMain">
             <h2>Am I eligible?</h2>
@@ -177,7 +242,7 @@ function BloodDonation() {
 
       </div>
 
-      {/* Popup form */}
+      
       {showForm && (
         <div className="popupOverlay">
           <div className="popupCard">
@@ -208,7 +273,8 @@ function BloodDonation() {
               <div className="formGroup">
                 <label>District</label>
                 <select name="district" onChange={handleFormChange}>
-                  {districts.map((d) => <option key={d}>{d}</option>)}
+                  <option value="">Select district</option>
+                  {districts.slice(1).map((d) => <option key={d}>{d}</option>)}
                 </select>
               </div>
             </div>
@@ -225,8 +291,12 @@ function BloodDonation() {
             </div>
 
             <div className="formButtons">
-              <button className="cancelBtn" onClick={() => setShowForm(false)}>Cancel</button>
-              <button className="submitBtn" onClick={handleSubmit}>Register</button>
+              <button className="cancelBtn" onClick={() => setShowForm(false)} disabled={submitting}>
+                Cancel
+              </button>
+              <button className="submitBtn" onClick={handleSubmit} disabled={submitting}>
+                {submitting ? "Registering..." : "Register"}
+              </button>
             </div>
           </div>
         </div>
